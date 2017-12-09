@@ -7,6 +7,10 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get('/', function(req, res) {
+  res.sendfile('default.html', { root: __dirname});
+});
+
 app.get('/api/whoami', function(req, res) {
 	var ip = req.ip;
 	var language = req.headers['accept-language'];
